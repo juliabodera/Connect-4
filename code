@@ -3,6 +3,18 @@ import numpy as np
 import pygame
 import math
 import json
+import pickle
+
+player = Player(...)
+level_state = Level(...)
+
+# zapisywanie pliku
+with open('savefile.dat', 'wb') as f:
+    pickle.dump([player, level_state], f, protocol=2)
+
+# ładowanie pliku
+with open('savefile.dat', 'rb') as f:
+    player, level_state = pickle.load(f)
 
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
